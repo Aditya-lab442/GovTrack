@@ -1,0 +1,817 @@
+{
+  "users": [
+    {
+      "id": "user_admin_01",
+      "firstName": "Vikram",
+      "lastName": "Singhania",
+      "email": "admin@govtrack.demo",
+      "mobileNumber": "+91 98765 43210",
+      "password": "$2b$10$BSKku7eoDmhrccrEp6/gaO.DbTggFPJF/5vYcogIz8WQwZNwEPNRq",
+      "role": "admin",
+      "profilePhoto": "/src/assets/images/avatar_officer_demo_1790490008709.jpg",
+      "address": "Room 204, Directorate of Citizen Services, Civil Lines",
+      "city": "Central District",
+      "district": "New Delhi",
+      "state": "Delhi",
+      "pincode": "110001",
+      "isActive": true,
+      "isVerified": true,
+      "createdAt": "2026-09-01T09:00:00.000Z",
+      "updatedAt": "2026-09-01T09:00:00.000Z"
+    },
+    {
+      "id": "user_citizen_01",
+      "firstName": "Rahul",
+      "lastName": "Patel",
+      "email": "rahul.patel@example.com",
+      "mobileNumber": "+91 98112 23344",
+      "password": "$2b$10$BSKku7eoDmhrccrEp6/gaO.DbTggFPJF/5vYcogIz8WQwZNwEPNRq",
+      "role": "citizen",
+      "profilePhoto": "/src/assets/images/avatar_citizen_demo_1790490097049.jpg",
+      "address": "B-42, Shanti Nagar, Ring Road",
+      "city": "Ahmedabad",
+      "district": "Ahmedabad",
+      "state": "Gujarat",
+      "pincode": "380015",
+      "isActive": true,
+      "isVerified": true,
+      "createdAt": "2026-09-10T10:00:00.000Z",
+      "updatedAt": "2026-09-10T10:00:00.000Z"
+    },
+    {
+      "id": "user_citizen_02",
+      "firstName": "Priya",
+      "lastName": "Sharma",
+      "email": "priya.sharma@example.com",
+      "mobileNumber": "+91 97234 56789",
+      "password": "$2b$10$BSKku7eoDmhrccrEp6/gaO.DbTggFPJF/5vYcogIz8WQwZNwEPNRq",
+      "role": "citizen",
+      "profilePhoto": "",
+      "address": "Flat 301, Greenfield Residency, Sector 14",
+      "city": "Jaipur",
+      "district": "Jaipur",
+      "state": "Rajasthan",
+      "pincode": "302004",
+      "isActive": true,
+      "isVerified": true,
+      "createdAt": "2026-09-12T11:30:00.000Z",
+      "updatedAt": "2026-09-12T11:30:00.000Z"
+    }
+  ],
+  "documentTypes": [
+    {
+      "id": "dt_income_cert",
+      "name": "Income Certificate",
+      "description": "Official revenue document certifying the annual household income of an applicant from all declared sources.",
+      "department": "Revenue & District Administration",
+      "processingTime": 7,
+      "fee": 50,
+      "requiredDocuments": [
+        {
+          "name": "Aadhaar Card / Identity Proof",
+          "description": "Clear front and back copy of government identity document.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf",
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Residential Address Proof",
+          "description": "Electricity bill, water bill, or ration card matching current address.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf",
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Income Proof / Salary Slip / Affidavit",
+          "description": "Latest Form 16, employer salary statement, or notary income affidavit.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf",
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Passport Size Photograph",
+          "description": "Recent front-facing color photo with white background.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 2
+        }
+      ],
+      "dynamicFormFields": [
+        {
+          "id": "applicantOccupation",
+          "label": "Occupation / Source of Livelihood",
+          "type": "text",
+          "required": true,
+          "placeholder": "e.g. Agriculture, Salaried, Small Business"
+        },
+        {
+          "id": "annualIncome",
+          "label": "Total Declared Annual Income (INR)",
+          "type": "number",
+          "required": true,
+          "placeholder": "e.g. 240000"
+        },
+        {
+          "id": "familyMembersCount",
+          "label": "Number of Dependent Family Members",
+          "type": "number",
+          "required": true,
+          "placeholder": "e.g. 4"
+        },
+        {
+          "id": "purposeOfCertificate",
+          "label": "Purpose of Certificate",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Higher Education Scholarship",
+            "Government Welfare Scheme",
+            "Fee Concession",
+            "Bank Loan Application",
+            "Other"
+          ]
+        }
+      ],
+      "isActive": true,
+      "createdAt": "2026-09-01T10:00:00.000Z",
+      "updatedAt": "2026-09-01T10:00:00.000Z"
+    },
+    {
+      "id": "dt_caste_cert",
+      "name": "Caste / Community Certificate",
+      "description": "Statutory certificate verifying category affiliation (SC, ST, OBC, SEBC) issued under state executive authority.",
+      "department": "Social Justice & Empowerment",
+      "processingTime": 14,
+      "fee": 60,
+      "requiredDocuments": [
+        {
+          "name": "Identity Proof of Applicant",
+          "description": "Aadhaar or Voter ID Card.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf",
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Proof of Caste Affiliation",
+          "description": "Parent caste certificate, school leaving certificate, or land pedigree record.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf",
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Residence Certificate / Domicile",
+          "description": "Valid proof of residence in the state for specified statutory period.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf",
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Affidavit of Caste Declaration",
+          "description": "Notarized sworn declaration affirming caste lineage.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf"
+          ],
+          "maxFileSize": 5
+        }
+      ],
+      "dynamicFormFields": [
+        {
+          "id": "casteCategory",
+          "label": "Caste Category",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Scheduled Caste (SC)",
+            "Scheduled Tribe (ST)",
+            "Other Backward Class (OBC)",
+            "Special Backward Category"
+          ]
+        },
+        {
+          "id": "subCaste",
+          "label": "Sub-Caste / Clan",
+          "type": "text",
+          "required": true,
+          "placeholder": "Specify sub-caste name"
+        },
+        {
+          "id": "fatherCaste",
+          "label": "Father's Recorded Caste",
+          "type": "text",
+          "required": true,
+          "placeholder": "Father's caste as per official record"
+        },
+        {
+          "id": "nativeVillage",
+          "label": "Ancestral / Native Village",
+          "type": "text",
+          "required": true,
+          "placeholder": "Village and Tehsil"
+        }
+      ],
+      "isActive": true,
+      "createdAt": "2026-09-01T10:00:00.000Z",
+      "updatedAt": "2026-09-01T10:00:00.000Z"
+    },
+    {
+      "id": "dt_residence_cert",
+      "name": "Residence / Domicile Certificate",
+      "description": "Document proving that the citizen is a permanent resident of the state or union territory.",
+      "department": "Revenue & Land Records",
+      "processingTime": 10,
+      "fee": 40,
+      "requiredDocuments": [
+        {
+          "name": "Identity Proof",
+          "description": "Aadhaar Card, Passport, or PAN Card.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf",
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Continuous Residence Proof (10+ Years)",
+          "description": "School certificates, utility bills, or property registry deeds spanning domicile duration.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf"
+          ],
+          "maxFileSize": 10
+        },
+        {
+          "name": "Passport Size Photo",
+          "description": "Recent photograph.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 2
+        }
+      ],
+      "dynamicFormFields": [
+        {
+          "id": "yearsInState",
+          "label": "Years of Continuous Residence in State",
+          "type": "number",
+          "required": true,
+          "placeholder": "e.g. 15"
+        },
+        {
+          "id": "placeOfBirth",
+          "label": "Place of Birth (Town / District)",
+          "type": "text",
+          "required": true,
+          "placeholder": "e.g. Ahmedabad"
+        },
+        {
+          "id": "purposeOfDomicile",
+          "label": "Application Purpose",
+          "type": "select",
+          "required": true,
+          "options": [
+            "State Government Recruitment",
+            "University Admission Quota",
+            "Land Purchase Clearance",
+            "Other"
+          ]
+        }
+      ],
+      "isActive": true,
+      "createdAt": "2026-09-01T10:00:00.000Z",
+      "updatedAt": "2026-09-01T10:00:00.000Z"
+    },
+    {
+      "id": "dt_birth_cert",
+      "name": "Birth Certificate (Extract / Copy)",
+      "description": "Certified extract from the Registrar of Births and Deaths confirming date and place of birth.",
+      "department": "Municipal Administration & Health",
+      "processingTime": 5,
+      "fee": 30,
+      "requiredDocuments": [
+        {
+          "name": "Hospital Discharge Summary / Birth Slip",
+          "description": "Official discharge card issued by hospital or healthcare facility.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf",
+            "jpg",
+            "jpeg",
+            "png"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Parents' Aadhaar / Identity Proof",
+          "description": "Combined identity proof of mother and father.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf"
+          ],
+          "maxFileSize": 5
+        }
+      ],
+      "dynamicFormFields": [
+        {
+          "id": "childName",
+          "label": "Full Name of Child",
+          "type": "text",
+          "required": true,
+          "placeholder": "As to appear on certificate"
+        },
+        {
+          "id": "dateOfBirth",
+          "label": "Date of Birth",
+          "type": "date",
+          "required": true
+        },
+        {
+          "id": "gender",
+          "label": "Gender",
+          "type": "select",
+          "required": true,
+          "options": [
+            "Male",
+            "Female",
+            "Other"
+          ]
+        },
+        {
+          "id": "hospitalName",
+          "label": "Hospital / Place of Birth",
+          "type": "text",
+          "required": true,
+          "placeholder": "Hospital name or home address"
+        },
+        {
+          "id": "fatherName",
+          "label": "Father's Full Name",
+          "type": "text",
+          "required": true
+        },
+        {
+          "id": "motherName",
+          "label": "Mother's Full Name",
+          "type": "text",
+          "required": true
+        }
+      ],
+      "isActive": true,
+      "createdAt": "2026-09-01T10:00:00.000Z",
+      "updatedAt": "2026-09-01T10:00:00.000Z"
+    },
+    {
+      "id": "dt_ews_cert",
+      "name": "Economically Weaker Section (EWS) Certificate",
+      "description": "Statutory income & asset certificate for reservation benefits under General Category economic reservation quotas.",
+      "department": "Welfare & Social Justice",
+      "processingTime": 12,
+      "fee": 50,
+      "requiredDocuments": [
+        {
+          "name": "Income Statement of Family",
+          "description": "Comprehensive income certificate validating gross annual family income below Rs 8 Lakhs.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Land & Property Holding Declaration",
+          "description": "Patwari certificate confirming residential flat/agricultural land holding limits.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf"
+          ],
+          "maxFileSize": 5
+        },
+        {
+          "name": "Aadhaar & PAN Card",
+          "description": "Combined identification document.",
+          "isRequired": true,
+          "allowedFileTypes": [
+            "pdf"
+          ],
+          "maxFileSize": 5
+        }
+      ],
+      "dynamicFormFields": [
+        {
+          "id": "grossFamilyIncome",
+          "label": "Gross Annual Family Income (INR)",
+          "type": "number",
+          "required": true,
+          "placeholder": "Must be below statutory ceiling"
+        },
+        {
+          "id": "agriculturalLandAcres",
+          "label": "Total Agricultural Land Owned (Acres)",
+          "type": "number",
+          "required": true,
+          "placeholder": "0 if none"
+        },
+        {
+          "id": "residentialFlatSqFt",
+          "label": "Residential Flat Area (Sq. Ft.)",
+          "type": "number",
+          "required": true,
+          "placeholder": "0 if none"
+        }
+      ],
+      "isActive": true,
+      "createdAt": "2026-09-01T10:00:00.000Z",
+      "updatedAt": "2026-09-01T10:00:00.000Z"
+    }
+  ],
+  "requests": [
+    {
+      "id": "req_000001",
+      "requestNumber": "GOV-2026-000001",
+      "citizen": "user_citizen_01",
+      "documentType": "dt_income_cert",
+      "applicationData": {
+        "applicantOccupation": "Salaried IT Professional",
+        "annualIncome": "480000",
+        "familyMembersCount": "3",
+        "purposeOfCertificate": "Higher Education Scholarship"
+      },
+      "uploadedDocuments": [
+        {
+          "id": "doc_101",
+          "documentType": "Aadhaar Card / Identity Proof",
+          "originalName": "Aadhaar_Rahul_Patel.pdf",
+          "storedName": "mock_aadhaar_001.pdf",
+          "mimeType": "application/pdf",
+          "size": 842100,
+          "path": "/uploads/mock_aadhaar_001.pdf",
+          "uploadedBy": "user_citizen_01",
+          "uploadedAt": "2026-09-20T10:30:00.000Z",
+          "verificationStatus": "VERIFIED",
+          "verificationRemarks": "Identity verified against UIDAI database."
+        },
+        {
+          "id": "doc_102",
+          "documentType": "Residential Address Proof",
+          "originalName": "Electricity_Bill_Aug2026.pdf",
+          "storedName": "mock_bill_001.pdf",
+          "mimeType": "application/pdf",
+          "size": 512400,
+          "path": "/uploads/mock_bill_001.pdf",
+          "uploadedBy": "user_citizen_01",
+          "uploadedAt": "2026-09-20T10:32:00.000Z",
+          "verificationStatus": "VERIFIED",
+          "verificationRemarks": "Address matches municipal jurisdiction."
+        },
+        {
+          "id": "doc_103",
+          "documentType": "Income Proof / Salary Slip / Affidavit",
+          "originalName": "Form16_Salary_Proof.pdf",
+          "storedName": "mock_income_001.pdf",
+          "mimeType": "application/pdf",
+          "size": 1048576,
+          "path": "/uploads/mock_income_001.pdf",
+          "uploadedBy": "user_citizen_01",
+          "uploadedAt": "2026-09-20T10:35:00.000Z",
+          "verificationStatus": "VERIFIED",
+          "verificationRemarks": "Form-16 computation audited."
+        },
+        {
+          "id": "doc_104",
+          "documentType": "Passport Size Photograph",
+          "originalName": "Applicant_Photo.jpg",
+          "storedName": "mock_photo_001.jpg",
+          "mimeType": "image/jpeg",
+          "size": 154200,
+          "path": "/uploads/mock_photo_001.jpg",
+          "uploadedBy": "user_citizen_01",
+          "uploadedAt": "2026-09-20T10:36:00.000Z",
+          "verificationStatus": "VERIFIED",
+          "verificationRemarks": "Clear portrait photograph."
+        }
+      ],
+      "status": "READY_FOR_DOWNLOAD",
+      "currentDepartment": "Revenue & District Administration",
+      "assignedOfficer": "Vikram Singhania (Deputy Tehsildar)",
+      "remarks": "Application vetted and digital certificate issued with cryptographic QR stamp.",
+      "submittedAt": "2026-09-20T10:40:00.000Z",
+      "lastUpdatedAt": "2026-09-24T14:30:00.000Z",
+      "expectedCompletionDate": "2026-09-27T10:40:00.000Z",
+      "finalDocument": {
+        "originalName": "Income_Certificate_GOV-2026-000001.pdf",
+        "storedName": "Income_Cert_GOV-2026-000001.pdf",
+        "mimeType": "application/pdf",
+        "size": 420500,
+        "path": "/uploads/cert_gov_2026_000001.pdf",
+        "issuedAt": "2026-09-24T14:30:00.000Z",
+        "certificateNumber": "INC/DL/2026/98214"
+      }
+    },
+    {
+      "id": "req_000002",
+      "requestNumber": "GOV-2026-000002",
+      "citizen": "user_citizen_02",
+      "documentType": "dt_caste_cert",
+      "applicationData": {
+        "casteCategory": "Other Backward Class (OBC)",
+        "subCaste": "Gujjar",
+        "fatherCaste": "Gujjar",
+        "nativeVillage": "Ramgarh, Tehsil Amber"
+      },
+      "uploadedDocuments": [
+        {
+          "id": "doc_201",
+          "documentType": "Identity Proof of Applicant",
+          "originalName": "Aadhaar_Priya_Sharma.pdf",
+          "storedName": "mock_doc_201.pdf",
+          "mimeType": "application/pdf",
+          "size": 750000,
+          "path": "/uploads/mock_doc_201.pdf",
+          "uploadedBy": "user_citizen_02",
+          "uploadedAt": "2026-09-22T11:00:00.000Z",
+          "verificationStatus": "VERIFIED",
+          "verificationRemarks": "Applicant identity validated."
+        },
+        {
+          "id": "doc_202",
+          "documentType": "Proof of Caste Affiliation",
+          "originalName": "Father_School_Certificate.pdf",
+          "storedName": "mock_doc_202.pdf",
+          "mimeType": "application/pdf",
+          "size": 920000,
+          "path": "/uploads/mock_doc_202.pdf",
+          "uploadedBy": "user_citizen_02",
+          "uploadedAt": "2026-09-22T11:05:00.000Z",
+          "verificationStatus": "PENDING"
+        }
+      ],
+      "status": "DOCUMENT_VERIFICATION",
+      "currentDepartment": "Social Justice & Empowerment",
+      "assignedOfficer": "Vikram Singhania (Verification Officer)",
+      "remarks": "Under verification by scrutiny officer.",
+      "submittedAt": "2026-09-22T11:15:00.000Z",
+      "lastUpdatedAt": "2026-09-23T09:20:00.000Z",
+      "expectedCompletionDate": "2026-10-06T11:15:00.000Z"
+    },
+    {
+      "id": "req_000003",
+      "requestNumber": "GOV-2026-000003",
+      "citizen": "user_citizen_01",
+      "documentType": "dt_residence_cert",
+      "applicationData": {
+        "yearsInState": "22",
+        "placeOfBirth": "Ahmedabad",
+        "purposeOfDomicile": "State Government Recruitment"
+      },
+      "uploadedDocuments": [
+        {
+          "id": "doc_301",
+          "documentType": "Identity Proof",
+          "originalName": "Passport_Rahul_P.pdf",
+          "storedName": "mock_doc_301.pdf",
+          "mimeType": "application/pdf",
+          "size": 1100000,
+          "path": "/uploads/mock_doc_301.pdf",
+          "uploadedBy": "user_citizen_01",
+          "uploadedAt": "2026-09-25T14:00:00.000Z",
+          "verificationStatus": "PENDING"
+        }
+      ],
+      "status": "SUBMITTED",
+      "currentDepartment": "Revenue & Land Records",
+      "remarks": "New application received in department queue.",
+      "submittedAt": "2026-09-25T14:10:00.000Z",
+      "lastUpdatedAt": "2026-09-25T14:10:00.000Z",
+      "expectedCompletionDate": "2026-10-05T14:10:00.000Z"
+    }
+  ],
+  "statusHistories": [
+    {
+      "id": "sh_001",
+      "request": "req_000001",
+      "oldStatus": "SUBMITTED",
+      "newStatus": "SUBMITTED",
+      "changedBy": "user_citizen_01",
+      "changedByRole": "citizen",
+      "remarks": "Application submitted successfully online by citizen.",
+      "timestamp": "2026-09-20T10:40:00.000Z"
+    },
+    {
+      "id": "sh_002",
+      "request": "req_000001",
+      "oldStatus": "SUBMITTED",
+      "newStatus": "UNDER_REVIEW",
+      "changedBy": "user_admin_01",
+      "changedByRole": "admin",
+      "remarks": "Application acknowledged by District Tehsildar desk.",
+      "timestamp": "2026-09-21T09:15:00.000Z"
+    },
+    {
+      "id": "sh_003",
+      "request": "req_000001",
+      "oldStatus": "UNDER_REVIEW",
+      "newStatus": "DOCUMENT_VERIFICATION",
+      "changedBy": "user_admin_01",
+      "changedByRole": "admin",
+      "remarks": "Scrutinizing Aadhaar, residential proof, and annual income proofs.",
+      "timestamp": "2026-09-22T11:30:00.000Z"
+    },
+    {
+      "id": "sh_004",
+      "request": "req_000001",
+      "oldStatus": "DOCUMENT_VERIFICATION",
+      "newStatus": "PROCESSING",
+      "changedBy": "user_admin_01",
+      "changedByRole": "admin",
+      "remarks": "All 4 mandatory documents verified successfully. Transferred to sanctioning authority.",
+      "timestamp": "2026-09-23T15:20:00.000Z"
+    },
+    {
+      "id": "sh_005",
+      "request": "req_000001",
+      "oldStatus": "PROCESSING",
+      "newStatus": "APPROVED",
+      "changedBy": "user_admin_01",
+      "changedByRole": "admin",
+      "remarks": "Income assessment ratified. Certificate sanctioned under Section 14.",
+      "timestamp": "2026-09-24T12:00:00.000Z"
+    },
+    {
+      "id": "sh_006",
+      "request": "req_000001",
+      "oldStatus": "APPROVED",
+      "newStatus": "READY_FOR_DOWNLOAD",
+      "changedBy": "user_admin_01",
+      "changedByRole": "admin",
+      "remarks": "Digitally signed certificate generated and made available on citizen portal.",
+      "timestamp": "2026-09-24T14:30:00.000Z"
+    },
+    {
+      "id": "sh_007",
+      "request": "req_000002",
+      "oldStatus": "SUBMITTED",
+      "newStatus": "SUBMITTED",
+      "changedBy": "user_citizen_02",
+      "changedByRole": "citizen",
+      "remarks": "Caste certificate request submitted with initial records.",
+      "timestamp": "2026-09-22T11:15:00.000Z"
+    },
+    {
+      "id": "sh_008",
+      "request": "req_000002",
+      "oldStatus": "SUBMITTED",
+      "newStatus": "UNDER_REVIEW",
+      "changedBy": "user_admin_01",
+      "changedByRole": "admin",
+      "remarks": "Assigned to Social Welfare inspection officer.",
+      "timestamp": "2026-09-22T16:00:00.000Z"
+    },
+    {
+      "id": "sh_009",
+      "request": "req_000002",
+      "oldStatus": "UNDER_REVIEW",
+      "newStatus": "DOCUMENT_VERIFICATION",
+      "changedBy": "user_admin_01",
+      "changedByRole": "admin",
+      "remarks": "Cross-verifying genealogy document with District Record Room.",
+      "timestamp": "2026-09-23T09:20:00.000Z"
+    },
+    {
+      "id": "sh_010",
+      "request": "req_000003",
+      "oldStatus": "SUBMITTED",
+      "newStatus": "SUBMITTED",
+      "changedBy": "user_citizen_01",
+      "changedByRole": "citizen",
+      "remarks": "Domicile request submitted.",
+      "timestamp": "2026-09-25T14:10:00.000Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_001",
+      "user": "user_citizen_01",
+      "title": "Certificate Ready for Download",
+      "message": "Your Income Certificate application GOV-2026-000001 has been approved and is ready to download.",
+      "type": "success",
+      "request": "req_000001",
+      "isRead": false,
+      "createdAt": "2026-09-24T14:30:00.000Z"
+    },
+    {
+      "id": "notif_002",
+      "user": "user_citizen_01",
+      "title": "Application Approved",
+      "message": "Application GOV-2026-000001 was sanctioned by District Tehsildar desk.",
+      "type": "info",
+      "request": "req_000001",
+      "isRead": true,
+      "createdAt": "2026-09-24T12:00:00.000Z"
+    },
+    {
+      "id": "notif_003",
+      "user": "user_citizen_02",
+      "title": "Verification In Progress",
+      "message": "Your Caste Certificate application GOV-2026-000002 has entered document verification stage.",
+      "type": "info",
+      "request": "req_000002",
+      "isRead": false,
+      "createdAt": "2026-09-23T09:20:00.000Z"
+    },
+    {
+      "id": "notif_004",
+      "user": "user_citizen_01",
+      "title": "Application Received",
+      "message": "Your Domicile application GOV-2026-000003 was logged successfully.",
+      "type": "info",
+      "request": "req_000003",
+      "isRead": false,
+      "createdAt": "2026-09-25T14:10:00.000Z"
+    }
+  ],
+  "auditLogs": [
+    {
+      "id": "audit_001",
+      "user": "user_admin_01",
+      "action": "ADMIN_LOGIN",
+      "description": "Administrative officer logged into verification portal.",
+      "ipAddress": "127.0.0.1",
+      "timestamp": "2026-09-24T08:50:00.000Z"
+    },
+    {
+      "id": "audit_002",
+      "user": "user_admin_01",
+      "action": "DOCUMENT_VERIFIED",
+      "request": "req_000001",
+      "description": "Document Aadhaar_Rahul_Patel.pdf verified by officer.",
+      "ipAddress": "127.0.0.1",
+      "timestamp": "2026-09-23T15:10:00.000Z"
+    },
+    {
+      "id": "audit_003",
+      "user": "user_admin_01",
+      "action": "STATUS_UPDATED",
+      "request": "req_000001",
+      "description": "Status transitioned from PROCESSING to APPROVED.",
+      "ipAddress": "127.0.0.1",
+      "timestamp": "2026-09-24T12:00:00.000Z"
+    },
+    {
+      "id": "audit_004",
+      "user": "user_admin_01",
+      "action": "FINAL_DOCUMENT_UPLOADED",
+      "request": "req_000001",
+      "description": "Issued digital certificate INC/DL/2026/98214.",
+      "ipAddress": "127.0.0.1",
+      "timestamp": "2026-09-24T14:30:00.000Z"
+    },
+    {
+      "id": "audit_1790490618116_2vhn30",
+      "timestamp": "2026-09-27T06:30:18.116Z",
+      "user": "user_admin_01",
+      "action": "ADMIN_LOGIN",
+      "description": "User logged in: admin@govtrack.demo",
+      "ipAddress": "127.0.0.1"
+    }
+  ]
+}

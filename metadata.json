@@ -1,0 +1,6 @@
+{
+  "name": "GovTrack — Government Document Request & Status Tracking System",
+  "description": "Digitized government document/certificate requests, transparent multi-stage verification status tracking, digital document issuance, and citizen notifications.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
